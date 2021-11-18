@@ -2,7 +2,7 @@
 // rib.scad
 // (c) 2021 - Roie R. Black
 //***************************************************
-include <../../wing_data.scad>
+include <../../stab_data.scad>
 
 use <MMlib/circle_template_rib.scad>
 

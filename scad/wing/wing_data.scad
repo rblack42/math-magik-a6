@@ -9,6 +9,7 @@ center_span = 8;
 spar_size = 1/16;
 rib_chord = max_wing_chord - 2 * spar_size;
 rib_camber = 4;
+rib_thickness = 1/32;
 num_center_ribs = 5;
 
 // tip section dimensions
