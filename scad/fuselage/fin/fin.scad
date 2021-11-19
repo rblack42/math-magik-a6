@@ -12,7 +12,7 @@ use <./trailing_edge/trailing_edge.scad>
 use <./rib1/fin_rib1.scad>
 use <./rib2/fin_rib2.scad>
 use <./arc/fin_arc.scad>
-use <./covering/fin_covering.scad>
+//use <./covering/fin_covering.scad>
 
 
 module fin() {
@@ -23,7 +23,7 @@ module fin() {
     align(rib1_pos) fin_rib1();
     align(rib2_pos) fin_rib2();
   }
-  align(covering_pos) fin_covering();
+  //align(covering_pos) fin_covering();
 }
 
 //--------------------------------------

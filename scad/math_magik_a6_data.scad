@@ -1,5 +1,5 @@
 //####################################
-// math-magik-lpp_data.scad
+// math-magik-a6_data.scad
 // (c) 2021 - Roie R. Black
 //************************************
 include <constraints.scad>

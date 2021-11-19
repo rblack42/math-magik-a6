@@ -4,10 +4,10 @@
 //=====================================
 include <colors.scad>
 
-fin_span = 2;
-fin_chord = 4;
-fin_radius = 1.5;
-spar_size = 1/32;
+fin_span = 1.5;
+fin_chord = 2;
+fin_radius = 0.75;
+spar_size = 1/16;
 fin_color = WOOD_Balsa;
 
 //-------------------------------------
