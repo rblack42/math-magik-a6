@@ -6,7 +6,7 @@ include <../../stab_data.scad>
 use <MMlib/square_spar.scad>
 
 module spar() {
-		square_spar(center_span, spar_size);
+		square_spar(stab_center_span, spar_size);
 }
 
 //==========================================

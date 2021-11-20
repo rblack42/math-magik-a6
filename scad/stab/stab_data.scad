@@ -1,19 +1,13 @@
 //#####################################
-// stab.data
+// stab_data.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <../constraints.scad>
+include <../math_magik_a6_data.scad>
 
 // center section dimensions
-center_span = 6;
-spar_size = 1/16;
-rib_chord = max_stab_chord - 2 * spar_size;
-rib_camber = 2;
-rib_thickness = 1/32;
-num_center_ribs = 3;
+stab_rib_chord = stab_chord - 2 * spar_size;
 
 // tip section dimensions
-tip_span = (max_stab_span - center_span)/2;
-tip_radius = 0.75;
-tip_le_span = tip_span - tip_radius;
-tip_rib_chord = max_stab_chord - tip_radius - spar_size;
+stab_tip_span = (stab_span - stab_center_span)/2;
+stab_tip_le_span = stab_tip_span - stab_tip_radius;
+stab_tip_rib_chord = stab_chord - stab_tip_radius - spar_size;

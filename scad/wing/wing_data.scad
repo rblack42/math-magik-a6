@@ -2,22 +2,15 @@
 // wing.data
 // (c) 2021 by Roie R. Black
 //=====================================
-include <../constraints.scad>
+include <../math_magik_a6_data.scad>
 
 // center section dimensions
-center_span = 8;
-spar_size = 1/16;
-rib_chord = max_wing_chord - 2 * spar_size;
-rib_camber = 4;
-rib_thickness = 1/32;
-num_center_ribs = 5;
+wing_rib_chord = wing_chord - 2 * spar_size;
 
 // tip section dimensions
-tip_dihedral = 1.0;
-tip_radius = 1;
-a = tip_dihedral;
-b = (max_projected_wing_span - center_span)/2;
-tip_span = sqrt(a*a + b*b);
-tip_dihedral_angle = atan2(a,b);
-tip_le_span = tip_span - tip_radius;
-tip_rib_chord = max_wing_chord - tip_radius - spar_size;
+a = wing_tip_dihedral;
+b = (wing_span - wing_center_span)/2;
+wing_tip_span = sqrt(a*a + b*b);
+wing_tip_dihedral_angle = atan2(a,b);
+wing_tip_le_span = wing_tip_span - wing_tip_radius;
+wing_tip_rib_chord = wing_chord - wing_tip_radius - spar_size;

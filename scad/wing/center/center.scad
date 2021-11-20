@@ -4,6 +4,7 @@
 //=====================================
 include <colors.scad>
 include <./center_pos.scad>
+include <../wing_data.scad>
 
 use <MMlib/position.scad>
 use <./spar/spar.scad>

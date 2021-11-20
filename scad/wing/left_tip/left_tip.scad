@@ -4,6 +4,7 @@
 //=====================================
 include <colors.scad>
 include <./left_tip_pos.scad>
+include <../wing_data.scad>
 
 use <MMlib/position.scad>
 
@@ -18,13 +19,14 @@ use <./covering/covering.scad>
 
 module left_tip() {
   color(WOOD_Balsa) {
+    
     align(le_pos) leading_edge();
     align(te_pos) trailing_edge();
     align(arc_pos) tip_arc();
     align(rib1_pos) tip_rib();
-	align(rib2_pos) tip_rib2();
+	  align(rib2_pos) tip_rib2();
   }
-  align(left_tip_cover_pos) covering();
+  //align(wing_left_tip_cover_pos) covering();
 }
 
 //--------------------------------------

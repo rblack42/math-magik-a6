@@ -1,16 +1,12 @@
 //#####################################
-// te.scad = wing center section
+// te.scad = stab center section
 // (c) 2021 by Roie R. Black
 //=====================================
 include <../../stab_data.scad>
-use <MMlib/double_taper_spar.scad>
-
-s1 = spar_size;
-s2 = spar_size/2;
-
+use <MMlib/square_spar.scad>
 
 module trailing_edge() {
-		double_taper_spar(tip_span,s1,s2,s1,s2);
+		square_spar(stab_tip_span,spar_size);
 }
 
 //====================================

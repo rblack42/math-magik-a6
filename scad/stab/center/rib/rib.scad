@@ -7,7 +7,7 @@ include <../../stab_data.scad>
 use <MMlib/circle_template_rib.scad>
 
 module rib() {
-    circle_template_rib(rib_chord, rib_camber, spar_size, rib_thickness);
+    circle_template_rib(stab_rib_chord, stab_rib_camber, spar_size, rib_thickness);
 }
 
 rib();

@@ -7,7 +7,7 @@ include <../../stab_data.scad>
 use <MMlib/square_spar.scad>
 
 module tip_rib() {
-      square_spar(tip_rib_chord, spar_size/2);
+      square_spar(stab_tip_rib_chord, spar_size);
 }
 
 tip_rib();
