@@ -28,17 +28,19 @@ arc_pos = [
   0
 ];
 rib1_pos = [
-  stab_tip_rib_chord/2 + stab_tip_radius,-stab_tip_span,
+  stab_tip_rib_chord/2 + stab_tip_radius,
+  -stab_tip_span,
   0,
   0,
   0,
-  90
+  90,
 ];
 rib2_pos = [
   spar_size,
   -stab_tip_span/2,
   0,
   0,
-  0]
-;
+  0,
+  0
+];
 //left_tip_cover_pos = [0,0,0,0,0,0];

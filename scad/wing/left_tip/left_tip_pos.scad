@@ -28,7 +28,8 @@ arc_pos = [
   0
 ];
 rib1_pos = [
-  wing_tip_rib_chord/2 + wing_tip_radius,-wing_tip_span,
+  wing_tip_rib_chord/2 + wing_tip_radius,
+  -wing_tip_span,
   0,
   0,
   0,
@@ -37,6 +38,7 @@ rib1_pos = [
 rib2_pos = [
   spar_size, 
   -wing_tip_span/2,
+  0,
   0,
   0,
   0]

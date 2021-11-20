@@ -14,9 +14,9 @@ use <./stab_mount/stab_mount.scad>
 
 
 module stab() {
-    align(right_tip_pos) right_tip();
-    align(center_pos) center();
-    align(left_tip_pos) left_tip();
+    align(stab_right_tip_pos) right_tip();
+    align(stab_center_pos) center();
+    align(stab_left_tip_pos) left_tip();
     //align(stab_le_mount_pos) stab_mount();
     //align(stab_te_mount_pos) stab_mount();
 }

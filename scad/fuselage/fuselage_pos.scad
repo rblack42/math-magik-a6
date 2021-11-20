@@ -3,7 +3,7 @@
 // (c) 2021 by Roie R. Black
 //*************************************
 //include <./motor_stick/motor_stick_data.scad>
-include <./tail_boom/tail_boom_data.scad>
+//include <./tail_boom/tail_boom_data.scad>
 //include <./thrust_bearing/thrust_bearing_data.scad>
 //include <../materials.scad>
 

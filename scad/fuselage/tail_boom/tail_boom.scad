@@ -2,7 +2,7 @@
 // tail_boom.scad
 // (c) 2021 - Roie R. Black
 //*****************************************
-include <tail_boom_data.scad>
+include <../fuselage_data.scad>
 
 use <MMlib/single_taper_spar.scad>
 

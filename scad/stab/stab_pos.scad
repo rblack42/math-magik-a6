@@ -11,7 +11,7 @@ stab_left_tip_pos = [
   0,
   -stab_center_span/2,
   0,
-  -stab_tip_dihedral_angle,
+  0,
   0,
   0
 ];
@@ -19,7 +19,7 @@ stab_right_tip_pos = [
   0,
   stab_center_span/2,
   0,
-  stab_tip_dihedral_angle,
+  0,
   0,
   0
 ];
