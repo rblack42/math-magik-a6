@@ -23,17 +23,9 @@ stab_right_tip_pos = [
   0,
   0
 ];
-stab_le_mount_pos = [
-  -post_diameter/2-tube_thickness,
-  0,
-  0,
-  0,
-  0,
-  0
-];
-stab_te_mount_pos = [
+stab_mount_pos = [
   stab_chord+post_diameter/2+tube_thickness,
-  0,
+  -post_diameter/2,
   0,
   0,
   0,

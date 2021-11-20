@@ -13,6 +13,7 @@ max_wing_chord = 2;
 max_stab_span = 10;
 max_stab_chord = 1.5;
 max_prop_diameter = 6;
+max_prop_thickness = 1/32;
 
 spar_size = 1/16;
 post_diameter = 1/16;
