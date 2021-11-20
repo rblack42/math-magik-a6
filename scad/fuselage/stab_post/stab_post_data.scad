@@ -3,7 +3,7 @@
 // (c) 2021 by Roie R. Black
 //*************************************
 include <../fuselage_data.scad>
-include <colors.scad>
+include <MMlib/colors.scad>
 
 
 stab_post_color = WOOD_Balsa;

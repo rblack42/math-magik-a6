@@ -2,7 +2,7 @@
 // fin-data.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <colors.scad>
+include <MMlib/colors.scad>
 
 fin_span = 1.5;
 fin_chord = 2;

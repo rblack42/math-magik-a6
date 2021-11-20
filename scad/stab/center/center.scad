@@ -2,7 +2,7 @@
 // center.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <colors.scad>
+include <MMlib/colors.scad>
 include <./center_pos.scad>
 include <../stab_data.scad>
 
@@ -15,7 +15,7 @@ use <./rib/rib.scad>
 module center() {
   color(WOOD_Balsa) {
     align(le_pos) spar();
-    align(rib1_pos) rib(); 
+    align(rib1_pos) rib();
     //align(rib2_pos) rib();
     align(rib3_pos) rib();
     //align(rib4_pos) rib();

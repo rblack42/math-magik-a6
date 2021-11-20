@@ -2,7 +2,7 @@
 // left_tip.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <colors.scad>
+include <MMlib/colors.scad>
 include <./left_tip_pos.scad>
 include <../wing_data.scad>
 
@@ -19,7 +19,7 @@ use <./covering/covering.scad>
 
 module left_tip() {
   color(WOOD_Balsa) {
-    
+
     align(le_pos) leading_edge();
     align(te_pos) trailing_edge();
     align(arc_pos) tip_arc();

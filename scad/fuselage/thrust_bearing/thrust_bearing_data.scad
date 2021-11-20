@@ -2,7 +2,7 @@
 // thrust_bearing_data.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <colors.scad>
+include <MMlib/colors.scad>
 include <../fuselage_data.scad>
 
 thb_thickness = 1/32;

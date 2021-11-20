@@ -2,7 +2,7 @@
 // motor-stick.scad
 // (c) 2021 - Roie R. Black
 //*************************************
-include <colors.scad>
+include <MMlib/colors.scad>
 include <motor_stick_data.scad>
 
 

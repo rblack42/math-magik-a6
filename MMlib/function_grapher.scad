@@ -8,9 +8,9 @@
 *
 **/
 
-use <MM/reverse.scad>;
-use <MMlib/polyline3d.scad>;
-use <MMlib/hull_polyline3d.scad>;
+use <reverse.scad>;
+use <polyline3d.scad>;
+use <hull_polyline3d.scad>;
 
 module function_grapher(points, thickness, style = "FACES", slicing = "SLASH") {
 

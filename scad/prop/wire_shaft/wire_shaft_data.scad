@@ -2,7 +2,7 @@
 // wire-shaft-data.scad
 // (c) 2021 by Roie R. Black
 //=====================================
-include <colors.scad>
+include <MMlib/colors.scad>
 
 wire_diameter = 0.02;
 hook_radius = 0.040;

@@ -2,7 +2,7 @@
 // blade.scad prop_blade
 // (c) 2021 - Roie R. Black
 //***************************************
-include <colors.scad>
+include <MMlib/colors.scad>
 include <../prop_data.scad>
 use <MMlib/elliptic_blade_blank.scad>
 
