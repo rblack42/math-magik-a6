@@ -20,8 +20,8 @@ te_pos = [
   0,
   0];
 arc_pos = [
-  wing_tip_radius, 
-  -wing_tip_span + wing_tip_radius, 
+  wing_tip_radius,
+  -wing_tip_span + wing_tip_radius,
   0,
   0,
   0,
@@ -36,11 +36,11 @@ rib1_pos = [
   90
 ];
 rib2_pos = [
-  spar_size, 
+  spar_size,
   -wing_tip_span/2,
   0,
   0,
   0,
   0]
 ;
-wing_left_tip_cover_pos = [0,0,0,0,0,0];
+wing_left_tip_cover_pos = [0,0,0,180,0,0];

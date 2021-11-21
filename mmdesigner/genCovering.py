@@ -6,9 +6,9 @@
     Generate covering surface for models
 """
 # system library imports
-import math
+from math import sqrt, sin, cos, asin, atan2
 import sys
-
+from ArcAirfoil import ArcAirfoil
 
 class Covering(object):
 
@@ -82,12 +82,13 @@ def flat(span, chord, radius, x, y):
         ych = chord
     else:
         sf = (py-y_tip)/radius
-        alpha = math.asin(sf)
-        x0 =  radius*(1 - math.cos(alpha))
+        alpha = asin(sf)
+        x0 =  radius*(1 - cos(alpha))
         ych = chord - x0
     px = x0 + x * ych
     height = 0
     return px, py, height;
+
 
 def circular_arc_airfoil(span, chord, radius, x, y):
     """
@@ -103,12 +104,29 @@ def circular_arc_airfoil(span, chord, radius, x, y):
         ych = chord
     else:
         sf = (py-y_tip)/radius
-        alpha = math.asin(sf)
-        x0 =  radius*(1 - math.cos(alpha))
+        alpha = asin(sf)
+        x0 =  radius*(1 - cos(alpha))
         ych = chord - x0
     px = x0 + x * ych
     height = 0
     return px, py, height;
+
+def osc_parse(exp):
+    nexp = ""
+    for c in exp:
+        if c in "+-/*":
+            nexp += " %s " % c
+        else:
+            nexp += c
+    # convert ints to floats
+    parts = nexp.split()
+    pexp = ""
+    for p in parts:
+        if p[0].isdigit() and not "." in p:
+            p+= ".0"
+        pexp += p
+    print(pexp)
+    return pexp
 
 def load_data():
 
@@ -116,16 +134,33 @@ def load_data():
         lines = fin.readlines()
         d = {}
         for l in lines:
-            if l.startswith("wing") or l.startswith("stab") or l.startswith("fin"):
+            l = l.strip()
+            if l == "": continue
+            if l.startswith("//"): continue
+            if "=" in l:
                 n,v = l.split("=")
-                v = v.strip()
-                if not v[0].isdigit(): continue
-                d[n.strip()] = float(v.strip()[:-1])
-        print(d)
+                rhs = v.strip()
+            else:
+                rhs += l
+            exp = "%s = %s" % (n,rhs)
+            if exp.endswith(";"):
+                exp = exp[:-1]
+            exp = osc_parse(exp)
+            print(exp)
+            exec(exp)
+            print(eval(n))
+            d[n.strip()] = eval(n)
+        #sys.exit()
         return d
+
 
 if __name__ == "__main__":
     d = load_data()
+    print(d)
+
+    wing_airfoil = ArcAirfoil(d["wing_chord"], d["wing_rib_camber"], d["spar_size"])
+    stab_airfoil = ArcAirfoil(d["stab_chord"], d["stab_rib_camber"], d["spar_size"])
+
     # generate fin covering
     c = Covering(
         d["fin_span"],
@@ -153,24 +188,20 @@ if __name__ == "__main__":
 
     # stab - left tip covering
     c = Covering(
-        (d["stab_span"] - d["stab_center_span"])/2,
+        d["stab_tip_span"],
         d["stab_chord"],
         d["stab_tip_radius"],10,10, flat)
     c.run("../scad/stab/left_tip/covering/cover_points.scad")
-    sys.exit()
 
-    # stab right tip covering
-    c = Covering(3,4,2,10,10, flat)
-    c.run("../scad/stab/right-tip/right-tip-covering/right-tip-covering-points.scad")
-
-    tip_angle = math.atan2(1.75,3)
-    tip_span = 3/math.cos(tip_angle)
+    ts = (d["wing_span"] - d["wing_center_span"])/2
+    tip_angle = atan2(d["wing_tip_dihedral"],ts)
+    tip_span = 3/cos(tip_angle)
 
     # wing left tip covering
-    c = Covering(tip_span,5,2,10,10, flat)
-    c.run("../scad/wing/left-tip/left-tip-covering/left-tip-covering-points.scad")
-
-    # wing right tip covering
-    c = Covering(tip_span,5,2,10,10, flat)
-    c.run("../scad/wing/right-tip/right-tip-covering/right-tip-covering-points.scad")
+    c = Covering(
+        d["wing_tip_span"],
+        d["wing_chord"],
+        d["wing_tip_radius"],
+        10,10, circular_arc_airfoil)
+    c.run("../scad/wing/left_tip/covering/cover_points.scad")
 

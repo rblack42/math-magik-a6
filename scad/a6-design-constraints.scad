@@ -24,6 +24,9 @@ wing_tip_dihedral = 1.0;
 wing_y_offset = -0.5;
 wing_x_offset = 1.25;
 wing_elevation = 1.0;
+a = wing_tip_dihedral;
+b = (wing_span - wing_center_span)/2;
+wing_tip_span = sqrt(a*a + b*b);
 
 stab_span = 10.0;
 stab_chord = 1.5;
@@ -32,7 +35,10 @@ stab_rib_camber = 2.0;
 stab_tip_radius = 0.75;
 stab_x_offset = ms_length + tb_length
 	- stab_chord - tb_x_offset;
+stab_tip_span = (stab_span - stab_center_span)/2;
 
+
+spar_size = 1/16;
 fin_chord = 2.0;
 fin_span = 1.0;
 fin_tip_radius = 0.5;
