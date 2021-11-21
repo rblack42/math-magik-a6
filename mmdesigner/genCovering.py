@@ -7,9 +7,8 @@
 """
 # system library imports
 import math
+import sys
 
-# local application imports
-import Airfoil
 
 class Covering(object):
 
@@ -111,35 +110,67 @@ def circular_arc_airfoil(span, chord, radius, x, y):
     height = 0
     return px, py, height;
 
+def load_data():
+
+    with open("../scad/a6-design-constraints.scad") as fin:
+        lines = fin.readlines()
+        d = {}
+        for l in lines:
+            if l.startswith("wing") or l.startswith("stab") or l.startswith("fin"):
+                n,v = l.split("=")
+                v = v.strip()
+                if not v[0].isdigit(): continue
+                d[n.strip()] = float(v.strip()[:-1])
+        print(d)
+        return d
+
 if __name__ == "__main__":
+    d = load_data()
     # generate fin covering
-    c = Covering(2,4,1.5,10,10, flat)
-    c.run("../scad/math-magik-lpp/fuselage/fin/fin-covering/fin-covering-points.scad")
+    c = Covering(
+        d["fin_span"],
+        d["fin_chord"],
+        d["fin_tip_radius"],
+        10,10, flat)
+    c.run("../scad/fuselage/fin/covering/cover_points.scad")
 
     # wing center section covering
-    c = Covering(12,5,0,10,10, circular_arc_airfoil)
-    c.run("../scad/math-magik-lpp/wing/center/center-covering/center-cover-points.scad")
+    c = Covering(
+        d["wing_center_span"],
+        d["wing_chord"],
+        0,
+        10,10, circular_arc_airfoil)
+    c.run("../scad/wing/center/covering/cover_points.scad")
 
     # stab center section covering
-    c = Covering(6,4,0,10,10, circular_arc_airfoil)
-    c.run("../scad/math-magik-lpp/stab/center/center-covering/center-cover-points.scad")
+    print("span", d["stab_chord"])
+    c = Covering(
+        d["stab_center_span"],
+        d["stab_chord"],
+        0,
+        10,10, circular_arc_airfoil)
+    c.run("../scad/stab/center/covering/cover_points.scad")
 
     # stab - left tip covering
-    c = Covering(3,4,2,10,10, flat)
-    c.run("../scad/math-magik-lpp/stab/left-tip/left-tip-covering/left-tip-covering-points.scad")
+    c = Covering(
+        (d["stab_span"] - d["stab_center_span"])/2,
+        d["stab_chord"],
+        d["stab_tip_radius"],10,10, flat)
+    c.run("../scad/stab/left_tip/covering/cover_points.scad")
+    sys.exit()
 
     # stab right tip covering
     c = Covering(3,4,2,10,10, flat)
-    c.run("../scad/math-magik-lpp/stab/right-tip/right-tip-covering/right-tip-covering-points.scad")
+    c.run("../scad/stab/right-tip/right-tip-covering/right-tip-covering-points.scad")
 
     tip_angle = math.atan2(1.75,3)
     tip_span = 3/math.cos(tip_angle)
 
     # wing left tip covering
     c = Covering(tip_span,5,2,10,10, flat)
-    c.run("../scad/math-magik-lpp/wing/left-tip/left-tip-covering/left-tip-covering-points.scad")
+    c.run("../scad/wing/left-tip/left-tip-covering/left-tip-covering-points.scad")
 
     # wing right tip covering
     c = Covering(tip_span,5,2,10,10, flat)
-    c.run("../scad/math-magik-lpp/wing/right-tip/right-tip-covering/right-tip-covering-points.scad")
+    c.run("../scad/wing/right-tip/right-tip-covering/right-tip-covering-points.scad")
 

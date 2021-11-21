@@ -3,7 +3,6 @@
 // (c) 2021 - Roie R. Black
 //****************************************
 include <./stab_data.scad>
-include <../materials.scad>
 
 
 stab_center_pos = [0,0,0,0,0,0];

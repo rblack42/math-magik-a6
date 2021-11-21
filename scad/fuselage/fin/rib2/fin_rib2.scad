@@ -7,7 +7,7 @@ include <../fin_data.scad>
 use <MMlib/square_spar.scad>
 
 module fin_rib2() {
-  square_spar(fin_chord-fin_radius+spar_size, spar_size);
+  square_spar(fin_chord-fin_tip_radius+spar_size, spar_size);
 }
 
 fin_rib2();

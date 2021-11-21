@@ -43,4 +43,4 @@ rib2_pos = [
   0,
   0]
 ;
-left_tip_cover_pos = [0,0,0,0,0,0];
+wing_left_tip_cover_pos = [0,0,0,0,0,0];
