@@ -9,7 +9,7 @@ include <../wing_data.scad>
 use <MMlib/position.scad>
 use <./spar/spar.scad>
 use <./rib/rib.scad>
-//use <./covering/covering.scad>
+use <./covering/covering.scad>
 
 module center() {
   color(WOOD_Balsa) {
@@ -21,7 +21,7 @@ module center() {
     align(rib5_pos) rib();
     align(te_pos) spar();
   }
-  //align(covering_pos) covering();
+  align(covering_pos) covering();
 }
 
 

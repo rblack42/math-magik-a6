@@ -1,6 +1,6 @@
-use <function_grapher.scad>;
+use <MMlib/function_grapher.scad>;
 include <cover_points.scad>
-include <colors.scad>
+include <MMlib/colors.scad>
 
 thickness = 0.001;
 style = "FACES";  // LINES to show surface grid

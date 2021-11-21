@@ -26,7 +26,7 @@ module left_tip() {
     align(rib1_pos) tip_rib();
 	  align(rib2_pos) tip_rib2();
   }
-  //align(wing_left_tip_cover_pos) covering();
+  align(wing_left_tip_cover_pos) covering();
 }
 
 //--------------------------------------
