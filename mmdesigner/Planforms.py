@@ -1,6 +1,13 @@
 class Planform(object):
 
 	def __init__(self):
+        self.assemblies = {
+            "wing",
+            "stab",
+            "fuselage",
+            "prop"
+        ]
+
 		self.dihedral_types = [
 			"flat",
 			"simple-dihedral",
@@ -25,4 +32,4 @@ class Planform(object):
 
 	def trailing_edge(self, y):
 		"""return x coordinate for given y"""
-			
+
